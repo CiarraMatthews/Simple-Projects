@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtWidgets import QPushButton 
+from PyQt5.QtWidgets import QFormLayout
+from PyQt5.QtWidgets import QLineEdit
 
 #instance of QApplication
 app = QApplication([])
@@ -14,12 +16,18 @@ app = QApplication([])
 window = QWidget()
 window.setWindowTitle('Calculator')
 
-#Layout
+#Layout of buttons
 layout = QHBoxLayout()
 layout.addWidget(QPushButton('By Hourly'))
 layout.addWidget(QPushButton('By Monthly'))
 layout.addWidget(QPushButton('By Salary'))
 window.setLayout(layout)
+
+#Layout of Forms
+layout2 = QFormLayout()
+layout2.addRow('Hourly Income', QLineEdit())
+layout2.addRow('Hours per Week', QLineEdit())
+window.setLayout(layout2)
 
 window.setGeometry(800, 700, 780, 580)
 window.move(60, 15)
