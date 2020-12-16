@@ -3,7 +3,7 @@
 def by_net_income():
 	#Fix the taxes!
 	income = int(input("Please enter your income here: "))
-	print("You can afford :", income * 0.33, "/mo, with a net income of ", income)
+	print("You can afford : $", income * 0.33, "/mo, with a net income of ", income)
 
 def by_gross_income():
 	#Fix the loop. Implement try and catch. Implement percentage options
@@ -16,9 +16,9 @@ def by_gross_income():
 	except ValueError:
 		print("Please enter a valid number")
 	if choice == 1:
-		print("You can afford :", income * 0.33, "/mo")
+		print("You can afford : $", income * 0.33, "/mo")
 	elif choice == 2:
-		print("Okay")
+		print("You can afford : $", income * percentages(), "/mo")
 	else:
 		print("Please chose one of the two options presented: ")
 		by_gross_income()
@@ -32,6 +32,16 @@ def by_yearly():
 	#Check for accuracy
 	income = int("Please enter your salary here: ")
 	print("You can afford : $", income/12 * 0.33, "/mo")
+
+def percentages():
+	try:
+		percent = int(input("Please input a value between 10 and 40%: "))
+	except ValueError:
+		print("Please enter a valid number")
+	return percent/100
+
+def find_taxes():
+	pass
 
 def main():
 	print("Press 1 to calculate by monthly net income \nPress 2 to calculate by monthly gross income \nPress 3 to start calculating by hourly pay \nPress 4 to calculate by yearly pay", end="")
