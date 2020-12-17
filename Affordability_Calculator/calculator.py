@@ -6,12 +6,11 @@ from PyQt5.QtWidgets import QLabel
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QPushButton
 from PyQt5.QtWidgets import QFormLayout, QLineEdit, QDialog, QDialogButtonBox
 
-#Instance of application's GUI rite?
-class Window(QMainWindow):
+#Create class window from parent class QMainWindow
+class CalcUI(QMainWindow):
 	def __init__(self, parent = None):
 		super().__init__(parent)
 		self.setWindowTitle('Calculator')
-		self.setCentralWidget(QLabel("Central Widget"))
 		self._createMenu()
 		self._createToolBar()
 		self._createStatusBar()
@@ -27,13 +26,16 @@ class Window(QMainWindow):
 
 	def _createStatusBar(self):
 		status = QStatusBar()
-		status.showMessage("I'm the Status Bar")
+		status.addWidget(QPushButton('By Hourly'))
+		status.addWidget(QPushButton('By Gross'))
+		status.addWidget(QPushButton('By Net'))
+		status.addWidget(QPushButton('By Salary'))
 		self.setStatusBar(status)
 
 if __name__ == '__main__':
 	#instance of QApplication
 	app = QApplication([])
-	win = Window()
+	win = CalcUI()
 	#shows the application's GUI
 	win.show()
 	#main loop
